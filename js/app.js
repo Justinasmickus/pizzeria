@@ -104,9 +104,10 @@ function generatePizza() {
     let pizzaCardData = document.createElement('div');
     pizzaCardData.innerHTML += `  
               <h3>${el.name}</h3>
-              <p>${el.price}</p>
-              <p>${el.toppings}</p>
-              <p>${el.heat}</p>           
+              <p>Price: ${el.price} &euro;</p>
+              <p>Toppings: ${el.toppings}</p>
+              <p>Heat level:${el.heat}</p> 
+              <button class="delete--btn">Delete</button>          
               `;
     let pizzaCardImg = document.createElement('div');
     pizzaCardImg.style.backgroundImage = el.picture;
