@@ -31,8 +31,10 @@ function renderToppings() {
   let toppingArrCopy = [...toppingArr];
   toppingArrCopy.map((t) => {
     toppingsContainer.innerHTML += `
+        <div class="toppings--card">
         <input class="checkbox" type="checkbox" name="${t}" id="${t}" value="${t}" />
         <label for="${t}">${t}</label>
+        </div>
         `;
   });
 }

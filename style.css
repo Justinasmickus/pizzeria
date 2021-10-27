@@ -10,10 +10,65 @@ body {
   color: #333;
   font-weight: 600;
 }
-.pictures {
-  display: flex;
+/* WRAPPER */
+.wrapper {
+  max-width: 70%;
+  margin: 5% auto;
+  padding: 3%;
+  background-color: rgba(60, 9, 0, 0.03);
+  border-radius: 20px;
 }
+
+/* FORM */
+
+.form--group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form--group input {
+  border: none;
+  border-bottom: 1px solid gray;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  padding: 0.4em;
+  box-shadow: 1px 1px 5px 0.5px rgba(0, 66, 10, 0.6);
+}
+
+.form--group label {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+.form--group p {
+  font-size: 1.5rem;
+  margin: 2rem 0;
+}
+
+/* toppings */
+.toppings p {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+.toppings--card {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.toppings--card input {
+  margin-right: 1em;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
 /* picture cards */
+.pictures {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1em;
+  align-items: center;
+  justify-items: center;
+}
 .picture--card {
   background-repeat: no-repeat;
   background-size: cover;
@@ -28,8 +83,27 @@ body {
   opacity: 0.8;
 }
 .checked {
-  border: 2px solid green;
+  border: 5px solid rgba(0, 128, 0, 0.4);
 }
+/* form button*/
+
+.form--btn {
+  display: block;
+  border: none;
+  border-radius: 15px;
+  background-color: rgb(120, 10, 10);
+  color: white;
+  font-size: 1.5em;
+  font-weight: 600;
+  padding: 10px;
+  transition: 0.2s;
+  margin: 3rem auto;
+}
+.form--btn:hover {
+  background-color: rgb(160, 0, 0);
+}
+
+/* MENU */
 .menu--container {
   display: flex;
 }
