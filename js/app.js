@@ -122,3 +122,15 @@ function generatePizza() {
   });
 }
 generatePizza();
+
+// Delte item from sessionStorage
+
+let deleteButton = document.querySelectorAll('.delete--btn');
+
+deleteButton.forEach((el) => {
+  el.addEventListener('click', (e) => {
+    let name = e.target.parentNode.children[0].textContent;
+    console.log(name);
+    sessionStorage.removeItem(name);
+  });
+});
