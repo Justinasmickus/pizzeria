@@ -114,6 +114,7 @@ function generatePizza() {
     let pizzaCardImg = document.createElement('div');
     pizzaCardImg.style.backgroundImage = el.picture;
     pizzaCardImg.className = 'picture--card';
+    pizzaCard.className = 'picture--card__container';
 
     pizzaCard.append(pizzaCardImg);
     pizzaCard.append(pizzaCardData);
