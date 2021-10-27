@@ -51,3 +51,10 @@ function renderPizzaImages() {
     pictureContainer.append(pizzaImgCard);
   }
 }
+
+// adding event listenerers to the pictures
+pictureContainer.addEventListener('click', (e) => {
+  if (e.target.className.includes('picture--card')) {
+    e.target.classList.toggle('checked');
+  }
+});

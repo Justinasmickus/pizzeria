@@ -10,7 +10,9 @@ body {
   color: #333;
   font-weight: 600;
 }
-
+.pictures {
+  display: flex;
+}
 /* picture cards */
 .picture--card {
   background-repeat: no-repeat;
@@ -24,4 +26,7 @@ body {
 .picture--card:hover {
   cursor: pointer;
   opacity: 0.8;
+}
+.checked {
+  border: 2px solid green;
 }
