@@ -30,3 +30,6 @@ body {
 .checked {
   border: 2px solid green;
 }
+.menu--container {
+  display: flex;
+}

@@ -3,6 +3,7 @@
 let formEl = document.querySelector('form');
 let toppingsContainer = document.querySelector('.toppings');
 let pictureContainer = document.querySelector('.pictures');
+let menuContainer = document.querySelector('.menu--container');
 
 let toppingArr = [
   'bacon',
@@ -63,6 +64,7 @@ pictureContainer.addEventListener('click', (e) => {
 });
 
 // saving form data to sessionStorage
+sessionStorage.removeItem('IsThisFirstTime_Log_From_LiveServer');
 
 formEl.addEventListener('submit', (e) => {
   let checkedToppingEl = document.querySelectorAll('.checkbox');
@@ -81,7 +83,38 @@ formEl.addEventListener('submit', (e) => {
     picture: document.querySelector('.checked').style.backgroundImage,
   };
   sessionStorage.setItem(formData.name, JSON.stringify(formData));
-
   formEl.reset();
+
   e.preventDefault();
 });
+
+// getting data from sessionStorage to display on the menu
+let keyValues = Object.keys(sessionStorage);
+// console.log(key);
+let storedData = [];
+for (let i = 0; i < keyValues.length; i++) {
+  let dataObj = JSON.parse(sessionStorage.getItem(`${keyValues[i]}`));
+  storedData.push(dataObj);
+}
+// console.log(storedData);
+
+function generatePizza() {
+  storedData.forEach((el) => {
+    let pizzaCard = document.createElement('div');
+    let pizzaCardData = document.createElement('div');
+    pizzaCardData.innerHTML += `  
+              <h3>${el.name}</h3>
+              <p>${el.price}</p>
+              <p>${el.toppings}</p>
+              <p>${el.heat}</p>           
+              `;
+    let pizzaCardImg = document.createElement('div');
+    pizzaCardImg.style.backgroundImage = el.picture;
+    pizzaCardImg.className = 'picture--card';
+
+    pizzaCard.append(pizzaCardImg);
+    pizzaCard.append(pizzaCardData);
+    menuContainer.append(pizzaCard);
+  });
+}
+generatePizza();
