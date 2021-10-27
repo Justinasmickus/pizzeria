@@ -30,7 +30,7 @@ function renderToppings() {
   let toppingArrCopy = [...toppingArr];
   toppingArrCopy.map((t) => {
     toppingsContainer.innerHTML += `
-        <input class="cb" type="checkbox" name="${t}" id="${t}" value="${t}" />
+        <input class="checkbox" type="checkbox" name="${t}" id="${t}" value="${t}" />
         <label for="${t}">${t}</label>
         `;
   });
@@ -52,9 +52,36 @@ function renderPizzaImages() {
   }
 }
 
-// adding event listenerers to the pictures
+// adding event listenerers
+
+// selecting a picture
+
 pictureContainer.addEventListener('click', (e) => {
   if (e.target.className.includes('picture--card')) {
     e.target.classList.toggle('checked');
   }
+});
+
+// saving form data to sessionStorage
+
+formEl.addEventListener('submit', (e) => {
+  let checkedToppingEl = document.querySelectorAll('.checkbox');
+  let checkedToppingArr = [];
+  checkedToppingEl.forEach((el) => {
+    if (el.checked) {
+      checkedToppingArr.push(el.value);
+    }
+  });
+
+  let formData = {
+    name: document.querySelector('.name').value,
+    price: document.querySelector('.price').value,
+    heat: document.querySelector('.heat').value,
+    toppings: checkedToppingArr,
+    picture: document.querySelector('.checked').style.backgroundImage,
+  };
+  sessionStorage.setItem(formData.name, JSON.stringify(formData));
+
+  formEl.reset();
+  e.preventDefault();
 });
